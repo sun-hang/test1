@@ -1,0 +1,25 @@
+<template>
+  <el-header class="container-header" style="text-align: right;width:100%; font-size: 12px">
+      <el-dropdown>
+        <i class="el-icon-setting" style="margin-right: 15px"></i>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>查看</el-dropdown-item>
+          <el-dropdown-item>新增</el-dropdown-item>
+          <el-dropdown-item>删除</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <span @click="showChange">王小虎</span>
+    </el-header>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+.container-header{
+    box-sizing: border-box;
+}
+</style>
