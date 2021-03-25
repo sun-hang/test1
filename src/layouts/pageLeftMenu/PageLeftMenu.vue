@@ -1,26 +1,31 @@
 <template>
   <el-aside :width="leftWidth + 'px'" class="left-menu">
     <div class="menu-box">
-      <el-menu :default-active="menuArray[0].path" :collapse="isShow" router="true"  active-text-color="#ffffff">
+      <el-menu
+        :default-active="menuArray[0].path"
+        :collapse="isShowLeftMenu"
+        :router="true"
+        active-text-color="#ffffff"
+      >
         <template v-for="item in menuArray">
           <el-submenu
             :index="item.path"
-            :key="item.id"
+            :key="item.id + item.path"
             v-if="item.child.length > 0"
           >
             <template slot="title">
               <i :class="item.icon" style="margin-left:20px;"></i>
-              <span slot="title">{{
-                item.title
-              }}</span>
-              <!-- <span ></span> -->
+              <span slot="title">{{ item.title }}</span>
             </template>
           </el-submenu>
-          <el-menu-item :key="item.id" :index="item.path" style="padding-left:40px;" v-else>
+          <el-menu-item
+            :key="item.id + item.path"
+            :index="item.path"
+            style="padding-left:40px;"
+            v-else
+          >
             <i :class="item.icon"></i>
-            <span slot="title">{{
-              item.title
-            }}</span>
+            <span slot="title">{{ item.title }}</span>
           </el-menu-item>
         </template>
       </el-menu>
@@ -29,6 +34,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -144,6 +150,9 @@ export default {
       ],
     };
   },
+  computed: {
+    ...mapState(['isShowLeftMenu'])
+  },
   methods: {
     showChange() {
       this.isShow = !this.isShow;
@@ -166,6 +175,9 @@ export default {
 .left-menu .menu-box {
   height: 100%;
 }
+.left-menu {
+  position: relative;
+}
 .left-menu .menu-box,
 ul.el-menu {
   background: rgb(2, 21, 40);
@@ -184,10 +196,10 @@ div.el-submenu__title li {
   color: #a4aab0;
   text-align: left;
 }
-li.el-submenu{
+li.el-submenu {
   /* padding-left: 20px; */
 }
-li.el-menu-item.is-active{
+li.el-menu-item.is-active {
   background: rgb(6, 53, 94);
 }
 </style>
