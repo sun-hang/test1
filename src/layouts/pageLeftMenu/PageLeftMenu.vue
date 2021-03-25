@@ -156,7 +156,7 @@ data(){
         }
     }
   }
-}
+}         
 </script>
 
 <style>
