@@ -1,5 +1,5 @@
 <template>
-  <el-aside :width="leftWidth + 'px'" class="left-menu">
+  <el-aside :width="isShowLeftMenu ? '65px':'220px'" class="left-menu">
     <div class="menu-box">
       <el-menu
         :default-active="menuArray[0].path"
@@ -12,9 +12,10 @@
             :index="item.path"
             :key="item.id + item.path"
             v-if="item.child.length > 0"
+            :style="{'padding-left':isShowLeftMenu ? '0px' : '20px'}"
           >
             <template slot="title">
-              <i :class="item.icon" style="margin-left:20px;"></i>
+              <i :class="item.icon" ></i>
               <span slot="title">{{ item.title }}</span>
             </template>
           </el-submenu>

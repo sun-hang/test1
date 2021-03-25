@@ -6,7 +6,7 @@
     <el-button
       class="isShowButton"
       type="text"
-      :icon="isShowLeftMenu ? 'el-icon-s-fold' : 'el-icon-s-unfold'"
+      :icon="!isShowLeftMenu ? 'el-icon-s-fold' : 'el-icon-s-unfold'"
       @click="changeIsShow"
     ></el-button>
     <el-dropdown>
