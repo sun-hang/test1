@@ -45,7 +45,9 @@ export default {
   color: #2c3e50;
   height: 100%;
 }
-
+#app a{
+  text-decoration: none;
+}
 #nav {
   padding: 30px;
 }
@@ -53,6 +55,7 @@ export default {
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 #nav a.router-link-exact-active {
