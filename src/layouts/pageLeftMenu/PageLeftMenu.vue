@@ -1,5 +1,5 @@
 <template>
-  <el-aside :width="isShowLeftMenu ? '65px':'220px'" class="left-menu">
+  <el-aside :width="isShowLeftMenu ? '65px':'240px'" class="left-menu">
     <div class="menu-box">
       <el-menu
         :default-active="menuArray[0].path"

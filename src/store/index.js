@@ -22,7 +22,8 @@ export default new Vuex.Store({
     getUserInfo({ commit }, payload) {
       if (!payload) {
         payload = {
-          name: "momo.xyz" //其他属性省略
+          name: "momo.xyz",//其他属性省略
+          avatar:"../../assets/logo.png"
         }
       }
       setTimeout(() => {
