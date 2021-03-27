@@ -1,5 +1,5 @@
 <template>
-<!-- 头部 -->
+  <!-- 头部 -->
   <el-header class="container-header">
     <!-- 左侧导航收缩按钮 -->
     <el-button
@@ -14,16 +14,12 @@
     <template v-if="userInfo">
       <!-- 有用户信息展示 -->
       <el-dropdown>
-        <el-avatar
-          class="avatar"
-          size="small"
-          :src="avatarUrl"
-        ></el-avatar>
+        <el-avatar class="avatar" size="small" :src="avatarUrl"></el-avatar>
         <span class="el-dropdown-link user-name">
           {{ userInfo.name }}
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>退出登录</el-dropdown-item>
+          <el-dropdown-item><span @click="outLogin">退出登录</span></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </template>
@@ -59,6 +55,9 @@ export default {
     changeIsShow() {
       this.getIsShowLeftMenu(!this.isShowLeftMenu);
     },
+    outLogin() {
+      this.$store.commit("getUserInfo", null);
+    },
   },
 };
 </script>
@@ -91,11 +90,11 @@ export default {
   vertical-align: middle;
   margin-right: 5px;
 }
-.container-header .icon{
+.container-header .icon {
   font-size: 20px;
   line-height: 60px;
   vertical-align: middle;
-  margin-right:15px;
+  margin-right: 15px;
   cursor: pointer;
 }
 </style>

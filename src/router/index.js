@@ -72,6 +72,10 @@ const routes = [
     // 系统管理
     path:"/system",
     name:"System"
+  },
+  {
+    path:"*",
+    component:() =>import('../views/Error.vue')
   }
 ]
 
