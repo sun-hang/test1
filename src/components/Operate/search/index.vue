@@ -97,10 +97,21 @@ export default {
     };
   },
   mounted() {
-    this.status = this.statusValue;
-    this.identity = this.identityValue;
-    this.sex = this.sexValue;
-    this.vip = this.vipValue;
+    /**
+     * 直接从地址栏获取参数，如果没有，使用默认值
+     */
+    this.status = this.$route.query.statusValue
+      ? this.$route.query.statusValue
+      : this.statusValue;
+    this.identity = this.$route.query.identityValue
+      ? this.$route.query.identityValue
+      : this.identityValue;
+    this.sex = this.$route.query.sexValue
+      ? this.$route.query.sexValue
+      : this.sexValue;
+    this.vip = this.$route.query.vipValue
+      ? this.$route.query.vipValue
+      : this.vipValue;
     this.query = this.$route.query.queryValue
       ? this.$route.query.queryValue
       : "";
