@@ -2,9 +2,12 @@
   <div class="statistics-container">
     <div class="statistics-title">
       <div class="tags">
-        <div class="item line" :style="{transform:`translateX(${tagX}px)`}"></div>
-        <div class="item" @click="tagChageClick(0)">用户数</div>
-        <div class="item" @click="tagChageClick(80)">订单数</div>
+        <div
+          class="item line"
+          :style="{ transform: `translateX(${tagX}px)` }"
+        ></div>
+        <div class="item" @click="tagChageClick(0, '用户数')">用户数</div>
+        <div class="item" @click="tagChageClick(80, '订单数')">订单数</div>
       </div>
       <div class="right">
         <el-date-picker
@@ -14,6 +17,7 @@
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
+          @change="onChange"
         >
         </el-date-picker>
       </div>
@@ -31,56 +35,22 @@ import VeHistogram from "v-charts/lib/histogram.common";
 import "echarts/lib/component/title";
 // 收益实时统计  //业务逻辑就先没写，比如日期的切换后做的一些页面数据修改重新渲染
 export default {
+  props: ["chartData", "chartExtend"],
   data() {
     return {
       count: "124,543,233",
       dateSelectVal: "",
       tagX: 0,
-      chartExtend: {
-        series: {
-          label: {
-            normal: {
-              show: false,
-              color: "#2b2b2b",
-              fontSize: 18,
-            },
-          },
-          symbolSize: 10,
-          barWidth: 30,
-          color: ["#46A3FC"],
-        },
-        title: {
-          show: true,
-          text: "用户总数：2,090人",
-        },
-      },
     };
   },
-  created() {
-    this.chartData = {
-      columns: ["日期", "用户数"],
-      rows: [
-        { 日期: "10月", 用户数: 300 },
-        { 日期: "11月", 用户数: 760 },
-        { 日期: "12月", 用户数: 1000 },
-        { 日期: "1月", 用户数: 510 },
-        { 日期: "2月", 用户数: 125 },
-        { 日期: "3月", 用户数: 510 },
-        { 日期: "4月", 用户数: 260 },
-        { 日期: "5月", 用户数: 300 },
-        { 日期: "6月", 用户数: 770 },
-        { 日期: "7月", 用户数: 510 },
-        { 日期: "8月", 用户数: 250 },
-        { 日期: "9月", 用户数: 350 },
-      ],
-    };
-  },
+
   methods: {
-    btnTextChange(val) {
-      this.btnText = val;
+    tagChageClick(val, text) {
+      this.tagX = val;
+      this.$emit("statisticsTagChange", text);
     },
-    tagChageClick(val) {
-        this.tagX = val;
+    onChange() {
+      this.$emit("statisticsDateChange", dateSelectVal);
     },
   },
   components: {

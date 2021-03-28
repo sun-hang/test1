@@ -19,7 +19,9 @@
           {{ userInfo.name }}
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item><span @click="outLogin">退出登录</span></el-dropdown-item>
+          <el-dropdown-item
+            ><span @click="outLogin">退出登录</span></el-dropdown-item
+          >
         </el-dropdown-menu>
       </el-dropdown>
     </template>
@@ -57,6 +59,7 @@ export default {
     },
     outLogin() {
       this.$store.commit("getUserInfo", null);
+      this.$router.push("/login");
     },
   },
 };

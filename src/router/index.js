@@ -11,6 +11,16 @@ const routes = [
     component: Home
   },
   {
+    path: '/login',
+    name: "Login",
+    component: () => import('../views/Login.vue')
+  },
+  {
+    path: "/reg",
+    name: 'Reg',
+    component: () => import('../views/Reg.vue')
+  },
+  {
     // 运营管理
     path: '/operate',
     name: 'Operate',
@@ -65,17 +75,17 @@ const routes = [
   },
   {
     // 乐天订单
-    path:"/order",
-    name:"Order"
+    path: "/order",
+    name: "Order"
   },
   {
     // 系统管理
-    path:"/system",
-    name:"System"
+    path: "/system",
+    name: "System"
   },
   {
-    path:"*",
-    component:() =>import('../views/Error.vue')
+    path: "*",
+    component: () => import('../views/Error.vue')
   }
 ]
 
