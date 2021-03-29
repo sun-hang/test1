@@ -197,9 +197,9 @@ div.el-submenu__title li {
   color: #a4aab0;
   text-align: left;
 }
-li.el-submenu {
+/* li.el-submenu {
   /* padding-left: 20px; */
-}
+/* } */ 
 li.el-menu-item.is-active {
   background: rgb(6, 53, 94);
 }

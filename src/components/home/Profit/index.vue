@@ -53,7 +53,7 @@ import VeLine from "v-charts/lib/line.common";
 import "echarts/lib/component/title";
 // 收益实时统计  //业务逻辑就先没写，比如日期的切换后做的一些页面数据修改重新渲染
 export default {
-  porps: ["profitChartData", "profitChartExtend"],
+  props: ["profitChartData", "profitChartExtend"],
   data() {
     return {
       count: "124,543,233",
@@ -62,7 +62,6 @@ export default {
     };
   },
   mounted(){
-      console.log(this.chartData,this.chartExtend);
   },
   methods: {
     btnTextChange(val) {
@@ -70,7 +69,7 @@ export default {
       this.$emit("profitTextChange", this.btnText);
     },
     onChange() {
-      this.$emit("profitDateChange", dateSelectVal);
+      this.$emit("profitDateChange", this.dateSelectVal);
     },
   },
   components: {

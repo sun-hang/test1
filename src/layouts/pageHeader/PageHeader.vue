@@ -73,6 +73,7 @@ export default {
   text-align: right;
   width: 100%;
   font-size: 12px;
+  min-width: 650px;
 }
 .container-header a {
   color: #2b2b2b;

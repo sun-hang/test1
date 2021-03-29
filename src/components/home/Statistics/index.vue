@@ -50,7 +50,7 @@ export default {
       this.$emit("statisticsTagChange", text);
     },
     onChange() {
-      this.$emit("statisticsDateChange", dateSelectVal);
+      this.$emit("statisticsDateChange", this.dateSelectVal);
     },
   },
   components: {

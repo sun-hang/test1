@@ -27,6 +27,9 @@ export default {
   height: 100%;
   width: 100%;
 }
+.el-main,.page-header{
+  min-width:650px;
+}
 .container-right {
   width: 100%;
   flex-wrap: wrap;
